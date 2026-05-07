@@ -24,6 +24,15 @@ chmod +x ~/.claude/skills/reimbursement/scripts/*.py
 pip install python-docx
 ```
 
+可选：安装 `/baoxiao` slash command，用一条命令快速启动报销流程：
+
+```bash
+mkdir -p ~/.claude/commands
+cp reimbursement/commands/baoxiao.md ~/.claude/commands/
+```
+
+安装后在 Claude Code 里输入 `/baoxiao` 即可。
+
 ## 配置
 
 编辑 `references/approval_form_mapping.json`，把 `template_path` 改成你自己的接待审批单模板路径。
