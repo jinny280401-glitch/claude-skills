@@ -1,0 +1,40 @@
+{
+  "template_path": "~/Documents/报销/接待审批单（空）.docx",
+  "output_dir": "~/Documents/报销/",
+  "validation_rules": {
+    "per_capita_limit": 600,
+    "merchant_similarity_threshold": 0.6,
+    "amount_tolerance": 0.5
+  },
+  "field_mapping": {
+    "send_date": {
+      "table": 0,
+      "row": 1,
+      "col": 6,
+      "description": "送审时间"
+    },
+    "reception_object": {
+      "table": 0,
+      "row": 2,
+      "col": 1,
+      "description": "接待对象"
+    },
+    "reception_date": {
+      "table": 0,
+      "row": 2,
+      "col": 6,
+      "description": "接待时间"
+    },
+    "reason": {
+      "table": 0,
+      "row": 3,
+      "col": 1,
+      "description": "事由（拓展客户/维护客户/商业合作/其他）"
+    },
+    "budget": {
+      "table": 0,
+      "row": 5,
+      "description": "商务宴请预算（接待人数、陪餐人数、人均费用、预算总额）"
+    }
+  }
+}
