@@ -27,12 +27,45 @@
 Claude：[触发 business-tracker skill，按流程收集需求并生成表格]
 ```
 
+### pdf-transfer
+
+**功能：** 把结构化文本/数据/Word-like 内容转成 A4 PDF，核心约束是"技术不要留白"
+
+**使用场景：**
+- 报告型 PDF（早盘集合竞价日报、研究报告、内参）
+- 表格密集型 PDF（数据清单、对比表、矩阵）
+- Word-like 文档（合同、纪要、SOP、模板）
+- 任何需要"留白少、专业感"的 A4 输出
+
+**触发词：** 做成 PDF、导出 PDF、排版一下、Word 转 PDF、留白太多、压紧一点、premium A4 风格、PDF 排版
+
+**输出：**
+- A4 PDF 文件（默认 weasyprint 渲染，备选 headless Chrome）
+- 自动密度自检（每页 < 200 字符告警）
+- 自动打开 PDF（macOS / Linux / Windows 全平台）
+
+**支持平台：** macOS / Linux / 统信 UOS / Windows
+
+**示例：**
+```
+用户：把这份集合竞价分析报告做成 PDF，要紧凑不留白
+Claude：[触发 pdf-transfer skill，套用 templates/compact-report.html，导出 PDF 并自检密度]
+```
+
 ## 安装
 
-将 `.md` 文件复制到 `~/.claude/skills/` 目录：
+将对应文件/目录复制到 `~/.claude/skills/` 目录：
 
 ```bash
+# 单文件 skill
 cp business-tracker.md ~/.claude/skills/
+
+# 多文件 skill (整个子目录)
+cp -R pdf-transfer ~/.claude/skills/
+
+# 或从 GitHub clone
+git clone https://github.com/jinny280401-glitch/claude-skills.git
+cp -R claude-skills/pdf-transfer ~/.claude/skills/
 ```
 
 ## 使用

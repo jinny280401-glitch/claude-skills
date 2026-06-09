@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>集合竞价分析报告 — 2026/06/09</title>
+  <style>
+    @page { size: A4; margin: 18mm 18mm 18mm 18mm; }
+
+    :root {
+      --paper: #ffffff;
+      --ink: #0a0a0a;
+      --muted: #5d5d5d;
+      --soft: #8f8a80;
+      --wine: #722f37;
+      --gold: #b8860b;
+      --rule: #e5dfd4;
+      --rule-dark: #191919;
+      --line: #c9c1b6;
+    }
+
+    html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+    body {
+      font-family: "PingFang SC", "Heiti SC", "Songti SC", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+      font-size: 9.4pt;
+      line-height: 1.62;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Noto Serif SC", serif;
+      margin: 0;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    p { margin: 0; }
+
+    .spread { page-break-after: auto; break-after: auto; }
+    .page-break { page-break-before: always; break-before: page; }
+
+    .masthead {
+      border-top: 3px solid var(--rule-dark);
+      padding-top: 8mm;
+      min-height: 232mm;
+      box-sizing: border-box;
+      page-break-after: always; break-after: page;
+    }
+
+    .eyebrow {
+      font-size: 7.1pt;
+      text-transform: uppercase;
+      letter-spacing: 1.4pt;
+      color: var(--soft);
+      margin-bottom: 3mm;
+    }
+
+    .title {
+      font-size: 24pt;
+      line-height: 1.08;
+      margin-bottom: 3mm;
+    }
+
+    .subtitle {
+      font-size: 10pt;
+      color: var(--wine);
+      margin-bottom: 5mm;
+    }
+
+    .dek {
+      font-size: 9.6pt;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 122mm;
+      margin-bottom: 8mm;
+    }
+
+    .hero-grid, .cover-index, .data-table, .two-col {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .hero-grid td, .cover-index td, .data-table td, .data-table th, .two-col td {
+      vertical-align: top;
+      border: none;
+      padding: 0;
+    }
+
+    .hero-left { width: 70%; padding-right: 10mm; }
+    .hero-right { width: 30%; padding-left: 2mm; }
+    .gutter { width: 7mm; }
+
+    .hero-note, .review-panel, .hero-panel {
+      border-left: 1px solid var(--rule);
+      padding-left: 5mm;
+      box-sizing: border-box;
+    }
+
+    .panel-kicker, .chapter-index, .micro-kicker {
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 1.2pt;
+      color: var(--soft);
+      margin-bottom: 2mm;
+    }
+
+    .panel-title {
+      font-size: 11pt;
+      line-height: 1.45;
+      margin-bottom: 5mm;
+    }
+
+    .stat-card {
+      border-top: 1px solid var(--rule-dark);
+      padding-top: 2.5mm;
+      margin-bottom: 4mm;
+    }
+
+    .stat-number {
+      display: block;
+      font-family: "Songti SC", "STSong", serif;
+      font-size: 16pt;
+      line-height: 1;
+      color: var(--wine);
+      margin-bottom: 1mm;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 6.9pt;
+      text-transform: uppercase;
+      letter-spacing: 1.1pt;
+      color: var(--soft);
+      margin-bottom: 1mm;
+    }
+
+    .stat-text, .panel-caption {
+      font-size: 7.8pt;
+      line-height: 1.58;
+      color: var(--muted);
+    }
+
+    .cover-index { margin-top: 10mm; border-top: 1px solid var(--rule); }
+    .index-chip {
+      border-right: 1px solid var(--rule);
+      padding: 3mm 3.2mm 0 0;
+    }
+    .index-chip:last-child { border-right: none; }
+    .index-chip strong {
+      display: block;
+      font-size: 7pt;
+      letter-spacing: 1pt;
+      text-transform: uppercase;
+      color: var(--wine);
+      margin-bottom: 1.3mm;
+    }
+    .index-chip span { font-size: 7.8pt; line-height: 1.5; color: var(--muted); display: block; }
+
+    .chapter-intro { margin-bottom: 5mm; }
+    .chapter-title { font-size: 17pt; line-height: 1.14; margin-bottom: 2mm; }
+    .chapter-lead { font-size: 8.8pt; line-height: 1.68; color: var(--muted); }
+    .rule { border-top: 1px solid var(--rule-dark); margin: 0 0 5mm 0; }
+
+    .folio-title { padding-bottom: 2.5mm; margin-bottom: 4mm; border-bottom: 1px solid var(--rule); }
+    .folio-title h2 { font-size: 12pt; margin-bottom: 1.2mm; }
+    .folio-title p { font-size: 8pt; color: var(--muted); line-height: 1.55; }
+
+    /* Report data tables */
+    .data-table { font-size: 8.2pt; line-height: 1.5; margin-bottom: 5mm; }
+    .data-table th {
+      font-size: 7.4pt; text-transform: uppercase; letter-spacing: 0.6pt;
+      color: var(--soft); font-weight: 600;
+      text-align: left; padding: 1.6mm 2.2mm;
+      border-bottom: 1px solid var(--rule-dark);
+    }
+    .data-table td {
+      padding: 1.8mm 2.2mm; border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .col-code { width: 14%; font-family: "Songti SC", serif; }
+    .col-name { width: 18%; font-weight: 600; }
+    .col-num  { width: 12%; text-align: right; font-variant-numeric: tabular-nums; }
+    .col-text { width: auto; }
+    .up { color: var(--wine); font-weight: 600; }
+    .flag { color: var(--gold); font-weight: 600; }
+
+    .meta-strip {
+      display: flex; gap: 6mm; flex-wrap: wrap;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 3mm 0; margin-bottom: 5mm;
+    }
+    .meta-strip > div { font-size: 8pt; color: var(--muted); }
+    .meta-strip strong { color: var(--ink); font-weight: 600; }
+
+    .check-item {
+      border-bottom: 1px solid var(--rule);
+      padding: 1.8mm 0;
+      margin-bottom: 2.1mm;
+      font-size: 8.4pt;
+      line-height: 1.55;
+    }
+    .check-item strong { color: var(--wine); font-weight: 600; }
+
+    .footer {
+      margin-top: 6mm;
+      padding-top: 3mm;
+      border-top: 1px solid var(--rule);
+      font-size: 7.2pt;
+      color: var(--soft);
+      letter-spacing: 0.4pt;
+    }
+
+    .small { font-size: 7.6pt; color: var(--muted); line-height: 1.5; }
+    .warn-box {
+      border: 1px solid var(--gold); border-left: 3px solid var(--gold);
+      background: #fdf8e7; padding: 3mm 4mm; margin: 4mm 0;
+      font-size: 8.2pt; line-height: 1.6; color: var(--ink);
+    }
+    .warn-box strong { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================ PAGE 1: COVER ============================ -->
+  <section class="spread masthead">
+    <p class="eyebrow">Finance Suite · 集合竞价 · 2026/06/09</p>
+    <table class="hero-grid">
+      <tr>
+        <td class="hero-left">
+          <h1 class="title">集合竞价分析报告</h1>
+          <p class="subtitle">涨停排行 + 量化选股信号 · 2026 年 6 月 9 日（周二）09:37 定盘</p>
+          <p class="dek">
+            本报告基于 2026/06/09 早盘集合竞价结束、连续竞价开启后的盘面快照（09:37 时点），
+            涵盖涨停池、强势股、昨日涨停今日表现、人气榜、飙升榜与大笔买入异动六大维度，
+            用于判断当日 A 股主线的强度、空间与接力情绪。
+          </p>
+          <div class="hero-note">
+            <p><strong>数据来源与诚信说明</strong></p>
+            <p style="margin-top:2mm;">
+              网站 <code style="font-family:Menlo,monospace;font-size:7.6pt;">/app/auction.html</code>
+              当前返回 "Failed to fetch"（后端 <code style="font-family:Menlo,monospace;font-size:7.6pt;">skill_type='auction'</code> 路由未接住）。
+              本报告用本地 MCP 工具链 <em>等价复现</em>，数据维度与原始契约一致。
+            </p>
+            <p style="margin-top:2mm;">
+              <strong style="color:var(--wine);">⚠ 不构成投资建议。</strong>
+              所有数字以原始公开数据为准，分析仅供研究参考。
+            </p>
+          </div>
+        </td>
+        <td class="hero-right">
+          <div class="hero-panel">
+            <p class="panel-kicker">Editor’s Note</p>
+            <p class="panel-title">三条主线 + 一个分化信号</p>
+
+            <div class="stat-card">
+              <span class="stat-label">涨停池</span>
+              <span class="stat-number">22</span>
+              <div class="stat-text">只。中等热度，未到爆量日水位（≥40）。</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">连板空间</span>
+              <span class="stat-number">3 板</span>
+              <div class="stat-text">天娱数科领衔。2 板 3 只（金安国纪 / 亚翔集成 / 韩建河山）。</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">60 日新高</span>
+              <span class="stat-number">≥ 8</span>
+              <div class="stat-text">只。趋势资金活跃，含丰光精密 / 巨能股份 / 富特科技等。</div>
+            </div>
+
+            <div class="panel-caption">
+              主线判断：电子材料 + 机器人 + 磁材 三箭齐发；
+              风险点：达实智能（18天10板）已显疲态。
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <table class="cover-index">
+      <tr>
+        <td class="index-chip"><strong>01</strong><span>盘面温度速览 + 5 条核心主线</span></td>
+        <td class="index-chip"><strong>02</strong><span>连板梯队 + 昨日涨停表现 + 异动</span></td>
+        <td class="index-chip"><strong>03</strong><span>人气飙升 + 综合判断 + 缺失模块</span></td>
+        <td class="index-chip"><strong>04</strong><span>重点观察标的 + 免责声明</span></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ============================ PAGE 2: 温度 + 主线 ============================ -->
+  <section class="spread">
+    <div class="chapter-intro">
+      <p class="chapter-index">01 · 盘面温度</p>
+      <h2 class="chapter-title">温度与主线（按封板资金 + 资金共识排序）</h2>
+      <p class="chapter-lead">
+        早盘集合竞价结束、09:30 连续竞价开启后 7 分钟的整体快照。
+        22 只涨停 + 4 只 2 板 + 1 只 3 板，空间结构健康。
+      </p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="meta-strip">
+      <div><strong>数据时点</strong>　2026-06-09 09:37</div>
+      <div><strong>涨停数</strong>　22</div>
+      <div><strong>连板</strong>　4 只 2 板 + 1 只 3 板</div>
+      <div><strong>60 日新高</strong>　≥ 8 只</div>
+      <div><strong>大笔买入</strong>　30 条</div>
+      <div><strong>人气飙升</strong>　10 只（Top10 跨度 3597 名）</div>
+    </div>
+
+    <div class="folio-title">
+      <h2>🔥 主线 1：电子材料 / PCB / 铜箔（最强主线）</h2>
+      <p>封板资金密度最高，圣泉集团单股 18.0 亿封单定海神针。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-num">封板资金(亿)</th>
+          <th class="col-text">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-code">605589</td>
+          <td class="col-name">圣泉集团</td>
+          <td class="col-num up">+10.01%</td>
+          <td class="col-num flag">18.0</td>
+          <td class="col-text">人气 #7，酚醛树脂 + 复合材料，封单绝对第一</td>
+        </tr>
+        <tr>
+          <td class="col-code">601208</td>
+          <td class="col-name">东材科技</td>
+          <td class="col-num up">+10.00%</td>
+          <td class="col-num">10.5</td>
+          <td class="col-text">电子级树脂，新能源 + 电子双驱动</td>
+        </tr>
+        <tr>
+          <td class="col-code">002636</td>
+          <td class="col-name">金安国纪</td>
+          <td class="col-num up">+10.00% 2板</td>
+          <td class="col-num">7.6</td>
+          <td class="col-text">人气 #8，CCL 覆铜板，60 日新高</td>
+        </tr>
+        <tr>
+          <td class="col-code">002254</td>
+          <td class="col-name">泰和新材</td>
+          <td class="col-num up">+6.85%</td>
+          <td class="col-num">—</td>
+          <td class="col-text">化纤 + 芳纶 + 电子材料三重概念</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>🤖 主线 2：机器人 / 智能制造</h2>
+      <p>埃斯顿人气榜冠军；北交所投机资金高量比集中爆发。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-num">量比</th>
+          <th class="col-text">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-code">002747</td>
+          <td class="col-name">埃斯顿</td>
+          <td class="col-num up">+7.83%</td>
+          <td class="col-num">—</td>
+          <td class="col-text">⭐ <span class="flag">人气榜冠军</span>，机器人本体龙头</td>
+        </tr>
+        <tr>
+          <td class="col-code">920578</td>
+          <td class="col-name">巨能股份</td>
+          <td class="col-num up">+14.77%</td>
+          <td class="col-num flag">67</td>
+          <td class="col-text">北交所，60 日新高 + 多次涨停 + 昨日涨停续涨</td>
+        </tr>
+        <tr>
+          <td class="col-code">920510</td>
+          <td class="col-name">丰光精密</td>
+          <td class="col-num up">+11.90%</td>
+          <td class="col-num">36</td>
+          <td class="col-text">北交所，60 日新高 + 多次涨停</td>
+        </tr>
+        <tr>
+          <td class="col-code">301607</td>
+          <td class="col-name">富特科技</td>
+          <td class="col-num up">+9.41%</td>
+          <td class="col-num">12</td>
+          <td class="col-text">60 日新高，新能源汽车零部件</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title" style="margin-top:5mm;">
+      <h2>🧲 主线 3-5：磁材 · 通信 · 化工（次主线）</h2>
+      <p>三条线索同步活跃，形成 2026/06/09 多点开花的格局。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-text">线索归属</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">000970</td><td class="col-name">中科三环</td><td class="col-num up">+6.25%</td><td class="col-text">磁材：钕铁硼龙头</td></tr>
+        <tr><td class="col-code">001696</td><td class="col-name">宗申动力</td><td class="col-num up">+9.97%</td><td class="col-text">磁电：昨日 1 板 → 今日晋级 2 板</td></tr>
+        <tr><td class="col-code">600522</td><td class="col-name">中天科技</td><td class="col-num up">+5.55%</td><td class="col-text">通信：人气 #4，海缆 + 算力</td></tr>
+        <tr><td class="col-code">600376</td><td class="col-name">亨通光电</td><td class="col-num up">+7.23%</td><td class="col-text">通信：光模块 + 算力</td></tr>
+        <tr><td class="col-code">601208</td><td class="col-name">胜宏科技</td><td class="col-num up">+4.74%</td><td class="col-text">PCB + 算力：人气 #17</td></tr>
+        <tr><td class="col-code">603065</td><td class="col-name">宿迁联盛</td><td class="col-num up">+10.05%</td><td class="col-text">化工：60 日新高，首板</td></tr>
+      </tbody>
+    </table>
+
+    <footer class="footer">Finance Suite · Call Auction Daily Brief · Page 2 / 4 · 数据源：market_pulse (akshare, completeness 0.86)</footer>
+  </section>
+
+  <!-- ============================ PAGE 3: 高度 + 异动 ============================ -->
+  <section class="spread">
+    <div class="chapter-intro">
+      <p class="chapter-index">02 · 高度与异动</p>
+      <h2 class="chapter-title">连板梯队 · 赚钱效应 · 大资金动向</h2>
+      <p class="chapter-lead">
+        连板空间由天娱数科（3 板）打开；昨日涨停今日晋级率较高，
+        但达实智能 18 天 10 板已显疲态，高位接力情绪开始分化。
+      </p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="folio-title">
+      <h2>🏔 连板梯队（高度空间）</h2>
+      <p>天娱数科是当前最高板 + 人气第二，是次日接力的关键观察点。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">板数</th>
+          <th class="col-name">代表</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-num">成交(亿)</th>
+          <th class="col-num">封板(亿)</th>
+          <th class="col-text">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-code">3 板</td>
+          <td class="col-name">天娱数科 (002354)</td>
+          <td class="col-num up">+9.96%</td>
+          <td class="col-num">17.2</td>
+          <td class="col-num">6.7</td>
+          <td class="col-text">⭐ AI + 数字营销，人气 #2，60 日新高</td>
+        </tr>
+        <tr>
+          <td class="col-code">2 板</td>
+          <td class="col-name">金安国纪 (002636)</td>
+          <td class="col-num up">+10.00%</td>
+          <td class="col-num">7.6</td>
+          <td class="col-num">7.6</td>
+          <td class="col-text">CCL 覆铜板</td>
+        </tr>
+        <tr>
+          <td class="col-code">2 板</td>
+          <td class="col-name">亚翔集成 (603929)</td>
+          <td class="col-num up">+10.00%</td>
+          <td class="col-num">4.4</td>
+          <td class="col-num">20.3</td>
+          <td class="col-text">半导体洁净室</td>
+        </tr>
+        <tr>
+          <td class="col-code">2 板</td>
+          <td class="col-name">韩建河山 (603616)</td>
+          <td class="col-num up">+9.95%</td>
+          <td class="col-num">0.3</td>
+          <td class="col-num">1.3</td>
+          <td class="col-text">水泥基建</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>📈 昨日涨停今日表现（赚钱效应体检）</h2>
+      <p>强晋级 + 中等续涨 + 高位掉队 = 良性分化 + 风险信号并存。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">今日涨幅</th>
+          <th class="col-text">信号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">001696</td><td class="col-name">宗申动力</td><td class="col-num up">+9.97%</td><td class="col-text"><span class="up">✅ 强晋级</span> 昨日 1 板 → 今日再涨停</td></tr>
+        <tr><td class="col-code">920578</td><td class="col-name">巨能股份</td><td class="col-num up">+14.77%</td><td class="col-text"><span class="up">✅ 强晋级</span> 北交所高弹性</td></tr>
+        <tr><td class="col-code">002254</td><td class="col-name">泰和新材</td><td class="col-num up">+6.85%</td><td class="col-text">✅ 中等续涨</td></tr>
+        <tr><td class="col-code">000970</td><td class="col-name">中科三环</td><td class="col-num up">+6.25%</td><td class="col-text">✅ 中等续涨</td></tr>
+        <tr><td class="col-code">000068</td><td class="col-name">华控赛格</td><td class="col-num up">+3.83%</td><td class="col-text">中等续涨</td></tr>
+        <tr><td class="col-code">002421</td><td class="col-name">达实智能</td><td class="col-num up">+3.84%</td><td class="col-text"><span class="flag">⚠ 高位首阴</span> 18 天 10 板，冲高回落</td></tr>
+        <tr><td class="col-code">603669</td><td class="col-name">灵康药业</td><td class="col-num up">-1.56%</td><td class="col-text"><span class="flag">⚠ 掉队</span></td></tr>
+        <tr><td class="col-code">002490</td><td class="col-name">山东墨龙</td><td class="col-num up">-4.25%</td><td class="col-text"><span class="flag">⚠ 掉队</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>💰 盘中大笔买入异动（09:36 实时 · 资金 Top 5）</h2>
+      <p>主力资金攻击方向集中在磁电链 + 电子链 + 高位承接。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">金额(万)</th>
+          <th class="col-text">主线归属</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">605006</td><td class="col-name">山东玻纤</td><td class="col-num">8,481</td><td class="col-text">玻璃纤维 / 化工</td></tr>
+        <tr><td class="col-code">300975</td><td class="col-name">商络电子</td><td class="col-num">2,392</td><td class="col-text">电子元器件</td></tr>
+        <tr><td class="col-code">001696</td><td class="col-name">宗申动力</td><td class="col-num">2,280</td><td class="col-text">磁电（再次出现，主线确认）</td></tr>
+        <tr><td class="col-code">301196</td><td class="col-name">唯科科技</td><td class="col-num">2,091</td><td class="col-text">精密制造</td></tr>
+        <tr><td class="col-code">002421</td><td class="col-name">达实智能</td><td class="col-num">1,562</td><td class="col-text">高位承接仍在，但动能减弱</td></tr>
+      </tbody>
+    </table>
+
+    <footer class="footer">Finance Suite · Call Auction Daily Brief · Page 3 / 4 · 数据源：market_pulse (akshare, completeness 0.86)</footer>
+  </section>
+
+  <!-- ============================ PAGE 4: 人气 + 判断 + 缺失 ============================ -->
+  <section class="spread">
+    <div class="chapter-intro">
+      <p class="chapter-index">03 · 人气与判断</p>
+      <h2 class="chapter-title">人气飙升 · 综合判断 · 重点观察</h2>
+      <p class="chapter-lead">
+        人气榜 Top5 几乎被涨停股 + 高位人气股占据，资金共识高度集中；
+        但需注意达实智能 18 天 10 板已显疲态，是高位接力降温的领先信号。
+      </p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="folio-title">
+      <h2>🚀 人气飙升榜（增量资金 / 新热点）</h2>
+      <p>世名科技是飙升榜唯一涨幅 &gt;5% 的，是今日新增关注点。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-num">排名变动</th>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-text">含义</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-num flag">+3,597</td><td class="col-code">301187</td><td class="col-name">欧圣电气</td><td class="col-num up">+2.07%</td><td class="col-text">异动新晋</td></tr>
+        <tr><td class="col-num">+2,255</td><td class="col-code">301299</td><td class="col-name">卓创资讯</td><td class="col-num">+0.41%</td><td class="col-text">信息服务</td></tr>
+        <tr><td class="col-num">+2,213</td><td class="col-code">300522</td><td class="col-name"><span class="flag">世名科技</span></td><td class="col-num up">+8.98%</td><td class="col-text">⭐ 飙升榜最强新热点</td></tr>
+        <tr><td class="col-num">+2,033</td><td class="col-code">300172</td><td class="col-name">中电环保</td><td class="col-num">+0.21%</td><td class="col-text">环保异动</td></tr>
+        <tr><td class="col-num">+1,913</td><td class="col-code">000514</td><td class="col-name">渝开发</td><td class="col-num">-2.07%</td><td class="col-text">地产异动</td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title" style="margin-top:5mm;">
+      <h2>🎯 综合判断</h2>
+      <p>强势特征 3 条 + 风险信号 3 条 + 重点观察 5 只。</p>
+    </div>
+
+    <table class="two-col">
+      <tr>
+        <td style="width:48%;">
+          <div class="folio-title">
+            <h2>✅ 强势特征</h2>
+          </div>
+          <div class="check-item"><strong>主线清晰：</strong>电子材料 + 机器人 + 磁材 三箭齐发</div>
+          <div class="check-item"><strong>空间打开：</strong>天娱数科 3 板 + 人气第二</div>
+          <div class="check-item"><strong>量价配合：</strong>60 日新高 + 量比 30+ 个股批量出现</div>
+          <div class="check-item"><strong>资金共识：</strong>圣泉集团单股 18 亿封单</div>
+        </td>
+        <td class="gutter"></td>
+        <td style="width:48%;">
+          <div class="folio-title">
+            <h2>⚠ 风险信号</h2>
+          </div>
+          <div class="check-item"><strong>龙头疲态：</strong>达实智能 18 天 10 板已显疲态</div>
+          <div class="check-item"><strong>前期掉队：</strong>山东墨龙 -4.25% / 灵康药业 -1.56%</div>
+          <div class="check-item"><strong>博弈风险：</strong>退市太和 (605081) 在涨停池</div>
+          <div class="check-item"><strong>量化失效：</strong>factor_scan 黄金坑今日无信号</div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="folio-title" style="margin-top:5mm;">
+      <h2>🏆 重点观察标的（次日关键）</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-num" style="width:14%;">优先级</th>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-text">关注点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-num flag">⭐⭐⭐</td><td class="col-code">002354</td><td class="col-name">天娱数科</td><td class="col-text">3 进 4 是否成功 — 最高板 + 人气第二</td></tr>
+        <tr><td class="col-num flag">⭐⭐⭐</td><td class="col-code">605589</td><td class="col-name">圣泉集团</td><td class="col-text">18 亿封单次日是否释放</td></tr>
+        <tr><td class="col-num flag">⭐⭐</td><td class="col-code">002636</td><td class="col-name">金安国纪</td><td class="col-text">电子材料链持续性（2 板 → 3 板？）</td></tr>
+        <tr><td class="col-num flag">⭐⭐</td><td class="col-code">601208</td><td class="col-name">东材科技</td><td class="col-text">电子材料链 + 10.5 亿封板承接</td></tr>
+        <tr><td class="col-num flag">⭐⭐</td><td class="col-code">002747</td><td class="col-name">埃斯顿</td><td class="col-text">机器人主线情绪锚（人气冠军）</td></tr>
+        <tr><td class="col-num">⭐</td><td class="col-code">300522</td><td class="col-name">世名科技</td><td class="col-text">飙升榜 +8.98%，新晋龙头候选</td></tr>
+        <tr><td class="col-num">⭐</td><td class="col-code">920510</td><td class="col-name">丰光精密</td><td class="col-text">北交所 + 量比 36 + 60 日新高</td></tr>
+      </tbody>
+    </table>
+
+    <footer class="footer">Finance Suite · Call Auction Daily Brief · Page 4 / 4 · 数据源：market_pulse (akshare, completeness 0.86)</footer>
+  </section>
+
+  <!-- ============================ PAGE 5: 缺失 + 免责 ============================ -->
+  <section>
+    <div class="chapter-intro">
+      <p class="chapter-index">04 · 缺失与免责</p>
+      <h2 class="chapter-title">⚠ 缺失模块 & 数据诚信声明</h2>
+      <p class="chapter-lead">
+        凡涉及未达标的模块，均已在报告中显式标注；本报告不接受"模糊掉缺失"的做法。
+      </p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="warn-box">
+      <strong>⚠ 黄金坑（factor_scan）模块失效</strong><br>
+      今日 <code style="font-family:Menlo,monospace;font-size:7.6pt;">mcp__finance-suite__factor_scan</code> 调用返回
+      <em>completeness 0.3 / signals 空 / fallback_source = wind</em>，
+      缺失维度：<strong>候选信号、市场环境</strong>。<br>
+      建议：网站后端需补充 <code style="font-family:Menlo,monospace;font-size:7.6pt;">prompts/auction.md</code>
+      + 修复 <code style="font-family:Menlo,monospace;font-size:7.6pt;">/api/analyze</code> 中
+      <code style="font-family:Menlo,monospace;font-size:7.6pt;">skill_type='auction'</code> 路由。
+    </div>
+
+    <div class="warn-box">
+      <strong>⚠ 网站 "Failed to fetch" 根因</strong><br>
+      浏览器 <code style="font-family:Menlo,monospace;font-size:7.6pt;">/app/auction.html</code>
+      调 <code style="font-family:Menlo,monospace;font-size:7.6pt;">POST /api/analyze</code>
+      时 fetch 失败 — 后端无对应 <code style="font-family:Menlo,monospace;font-size:7.6pt;">skill_type</code> 处理。
+      本报告用 MCP 工具链等价复现，不等同于修好网站。
+    </div>
+
+    <div class="folio-title" style="margin-top:6mm;">
+      <h2>📋 数据诚信摘要</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr><th style="width:30%;">维度</th><th>状态</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>涨停池 (22 只)</td><td>✅ 完整</td></tr>
+        <tr><td>强势股池 (66 只)</td><td>✅ 完整</td></tr>
+        <tr><td>昨日涨停今日表现 (57 只)</td><td>✅ 完整</td></tr>
+        <tr><td>大笔买入 (30 条)</td><td>✅ 完整</td></tr>
+        <tr><td>人气榜 Top 20</td><td>✅ 完整</td></tr>
+        <tr><td>人气飙升 Top 10</td><td>✅ 完整</td></tr>
+        <tr><td>涨幅排行</td><td>❌ 缺失（不影响主线判断）</td></tr>
+        <tr><td>factor_scan / 黄金坑</td><td>❌ 失效（completeness 0.3）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chapter-intro" style="margin-top:8mm;">
+      <p class="chapter-index">Disclaimer</p>
+      <h2 class="chapter-title" style="font-size:13pt;">免责声明</h2>
+      <p class="small" style="line-height:1.7;">
+        本报告基于 2026/06/09 早盘公开盘面数据（数据源 akshare / market_pulse）整理生成，
+        不构成任何形式的投资建议、要约或邀约。报告中提及的所有股票、代码、名称及数据
+        均以原始公开市场行情为准，受市场波动、政策变化、公司基本面变化等多重因素影响，
+        可能与实际走势存在显著差异。任何投资决策应基于投资者自身研究、风险承受能力
+        及专业顾问意见。本报告作者及发布平台不对任何依据本报告进行的投资行为
+        及其后果承担任何责任。
+      </p>
+      <p class="small" style="margin-top:3mm;">
+        报告生成方式：本地 MCP 工具链（market_pulse + factor_scan）· 等价复现 touziagent.com
+        集合竞价功能 · 输出格式：premium A4 print · 字体：PingFang SC / Songti SC
+      </p>
+    </div>
+
+    <footer class="footer">Finance Suite · Call Auction Daily Brief · End of Report · © 2026</footer>
+  </section>
+
+</body>
+</html>
