@@ -32,12 +32,14 @@ Claude：[触发 business-tracker skill，按流程收集需求并生成表格]
 **功能：** 把结构化文本/数据/Word-like 内容转成 A4 PDF，核心约束是"技术不要留白"
 
 **使用场景：**
-- 报告型 PDF（早盘集合竞价日报、研究报告、内参）
+- 详细报告 PDF（集合竞价详细报告、研究报告、内参）— **本 skill 主推**
 - 表格密集型 PDF（数据清单、对比表、矩阵）
 - Word-like 文档（合同、纪要、SOP、模板）
 - 任何需要"留白少、专业感"的 A4 输出
 
-**触发词：** 做成 PDF、导出 PDF、排版一下、Word 转 PDF、留白太多、压紧一点、premium A4 风格、PDF 排版
+**触发词：** 导出 PDF、详细报告、做成 PDF 报告、留白太多、压紧一点
+
+> ⚠ **简讯/盘前快报/Morning Brief 不触发本 skill**,请直接用 chat markdown 表格(成本低 7-13 倍)
 
 **输出：**
 - A4 PDF 文件（默认 weasyprint 渲染，备选 headless Chrome）
@@ -47,14 +49,14 @@ Claude：[触发 business-tracker skill，按流程收集需求并生成表格]
 **支持平台：** macOS / Linux / 统信 UOS / Windows
 
 **包含 3 个模板**（`pdf-transfer/templates/`）：
-- `compact-report.html` — 通用报告型（封面 + 多章）
-- `auction-morning-brief.html` — 集合竞价 Morning Brief（1 页极简定调）
-- `auction-report.html` — 集合竞价详细报告（3-4 页业务研究）
+- `compact-report.html` — 通用报告（封面 + 多章）
+- `auction-morning-brief.html` — ⚠ **deprecated**（2026/06/09 起），简讯场景改用 chat markdown 表格
+- `auction-report.html` — ✅ **推荐**，集合竞价详细报告（3-4 页业务研究）
 
 **示例：**
 ```
 用户：把这份集合竞价分析报告做成 PDF，要紧凑不留白
-Claude：[触发 pdf-transfer skill，套用 auction-morning-brief.html 或 auction-report.html，导出 PDF 并自检密度]
+Claude：[触发 pdf-transfer skill，套用 auction-report.html，导出 PDF 并自检密度]
 ```
 
 ## 安装

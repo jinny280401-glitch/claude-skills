@@ -2,6 +2,18 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <!--
+    ⚠ DEPRECATED — 2026/06/09 起不再推荐使用此模板
+
+    原因:1 页内容密度低,走 skill 流程成本是 chat markdown 表格的 7-13 倍 token。
+    简讯场景请直接 chat 内联 markdown 表格输出,不再调 weasyprint 渲染。
+
+    本模板保留作为:
+    1. 历史参考(本文件就是 2026/06/09 的简讯样例的源头)
+    2. 详细报告 auction-report.html 的设计原型(版式/表格密度/字体降级链)
+
+    如需每日盘前简讯,直接用 chat markdown 表格,不需要这个 skill。
+  -->
   <title>Morning Brief — {{DATE}}</title>
   <style>
     @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
