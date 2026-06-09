@@ -46,10 +46,15 @@ Claude：[触发 business-tracker skill，按流程收集需求并生成表格]
 
 **支持平台：** macOS / Linux / 统信 UOS / Windows
 
+**包含 3 个模板**（`pdf-transfer/templates/`）：
+- `compact-report.html` — 通用报告型（封面 + 多章）
+- `auction-morning-brief.html` — 集合竞价 Morning Brief（1 页极简定调）
+- `auction-report.html` — 集合竞价详细报告（3-4 页业务研究）
+
 **示例：**
 ```
 用户：把这份集合竞价分析报告做成 PDF，要紧凑不留白
-Claude：[触发 pdf-transfer skill，套用 templates/compact-report.html，导出 PDF 并自检密度]
+Claude：[触发 pdf-transfer skill，套用 auction-morning-brief.html 或 auction-report.html，导出 PDF 并自检密度]
 ```
 
 ## 安装

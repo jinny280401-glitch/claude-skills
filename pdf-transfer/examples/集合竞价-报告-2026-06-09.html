@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>集合竞价报告 — 2026-06-09</title>
+  <style>
+    @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+    :root {
+      --ink: #0a0a0a; --muted: #555; --soft: #888;
+      --wine: #722f37; --gold: #b8860b;
+      --rule: #e0e0e0; --rule-dark: #191919;
+    }
+    body {
+      font-family: "PingFang SC", "Heiti SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: 9.2pt; line-height: 1.55; color: var(--ink); margin: 0;
+    }
+    h1, h2, h3 { font-family: "Songti SC", "STSong", serif; font-weight: 600; margin: 0; color: var(--ink); }
+    p { margin: 0; }
+    h1, h2, h3 { page-break-after: avoid; }
+    table, .data-table { page-break-inside: avoid; }
+    .folio-title, .chapter-intro { page-break-after: avoid; }
+    .headline { border-bottom: 3px solid var(--rule-dark); padding-bottom: 3mm; margin-bottom: 4mm; }
+    .headline__date { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1.4pt; color: var(--soft); }
+    .headline__title { font-size: 24pt; line-height: 1.08; margin: 1.5mm 0; }
+    .headline__sub { font-size: 10pt; color: var(--wine); }
+    .stat-row { display: flex; gap: 4mm; margin-bottom: 5mm; }
+    .stat-row > div { flex: 1; border-top: 1px solid var(--rule-dark); padding-top: 2mm; }
+    .stat-num { display: block; font-family: "Songti SC", serif; font-size: 16pt; line-height: 1; color: var(--wine); margin-bottom: 1mm; }
+    .stat-lbl { font-size: 6.8pt; text-transform: uppercase; letter-spacing: 1.1pt; color: var(--soft); }
+    .chapter-intro { margin-bottom: 3mm; }
+    .chapter-title { font-size: 14pt; line-height: 1.18; margin-bottom: 1mm; }
+    .chapter-lead { font-size: 8.4pt; line-height: 1.6; color: var(--muted); }
+    .rule { border-top: 1px solid var(--rule-dark); margin: 0 0 3mm 0; }
+    .folio-title { padding-bottom: 1.5mm; margin: 4mm 0 2.5mm; border-bottom: 1px solid var(--rule); }
+    .folio-title h2 { font-size: 11pt; }
+    .folio-title p { font-size: 7.8pt; color: var(--muted); line-height: 1.5; margin-top: 0.8mm; }
+    .data-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 8pt; line-height: 1.45; margin-bottom: 3mm; }
+    .data-table th { font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.6pt; color: var(--soft); font-weight: 600; text-align: left; padding: 1.3mm 2mm; border-bottom: 1px solid var(--rule-dark); }
+    .data-table td { padding: 1.4mm 2mm; border-bottom: 1px solid var(--rule); vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .col-code { width: 13%; font-family: "Songti SC", serif; }
+    .col-name { width: 17%; font-weight: 600; }
+    .col-num  { width: 11%; text-align: right; font-variant-numeric: tabular-nums; }
+    .col-text { width: auto; }
+    .up { color: var(--wine); font-weight: 600; }
+    .flag { color: var(--gold); font-weight: 600; }
+    .core-grid { width: 100%; border-collapse: collapse; margin-bottom: 4mm; }
+    .core-grid td { width: 50%; vertical-align: top; padding: 0; }
+    .core-grid .gutter { width: 4mm; }
+    .core-panel { border-left: 2px solid var(--wine); padding-left: 3mm; }
+    .core-panel.risk { border-left-color: var(--gold); }
+    .panel-kicker { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.2pt; color: var(--soft); margin-bottom: 1.5mm; }
+    .panel-line { font-size: 8.6pt; line-height: 1.55; margin-bottom: 1.3mm; }
+    .panel-line strong { color: var(--wine); }
+    .footer { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid var(--rule); font-size: 7pt; color: var(--soft); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================ 封面头条 ============================ -->
+  <section>
+    <div class="headline">
+      <div class="headline__date">2026 年 6 月 9 日 · 周二</div>
+      <h1 class="headline__title">集合竞价报告</h1>
+      <div class="headline__sub">涨停排行 + 量化选股信号 · 09:37 时点</div>
+    </div>
+
+    <div class="stat-row">
+      <div>
+        <span class="stat-num">22</span>
+        <span class="stat-lbl">涨停数</span>
+      </div>
+      <div>
+        <span class="stat-num">3 板</span>
+        <span class="stat-lbl">最高板</span>
+      </div>
+      <div>
+        <span class="stat-num">≥ 8</span>
+        <span class="stat-lbl">60 日新高</span>
+      </div>
+      <div>
+        <span class="stat-num">126</span>
+        <span class="stat-lbl">最高量比</span>
+      </div>
+      <div>
+        <span class="stat-num">3</span>
+        <span class="stat-lbl">活跃主线</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 第 1 章 · 核心主线 ============================ -->
+  <section>
+    <div class="chapter-intro">
+      <h2 class="chapter-title">核心主线</h2>
+      <p class="chapter-lead">按封板资金 + 资金共识排序,今日 3 条主线活跃。</p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="folio-title">
+      <h2>🔥 主线 1:电子材料 / PCB / 铜箔</h2>
+      <p>圣泉集团 18 亿封单定海神针,CCL 覆铜板 + 树脂链同步爆发。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-num">封板(亿)</th>
+          <th class="col-text">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">605589</td><td class="col-name">圣泉集团</td><td class="col-num up">+10.01%</td><td class="col-num flag">18.0</td><td class="col-text">人气 #7,酚醛树脂 + 复合材料,封单绝对第一</td></tr>
+        <tr><td class="col-code">601208</td><td class="col-name">东材科技</td><td class="col-num up">+10.00%</td><td class="col-num">10.5</td><td class="col-text">电子级树脂,新能源 + 电子双驱动</td></tr>
+        <tr><td class="col-code">002636</td><td class="col-name">金安国纪</td><td class="col-num up">+10.00% 2板</td><td class="col-num">7.6</td><td class="col-text">人气 #8,CCL 覆铜板,60 日新高</td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>🤖 主线 2:机器人 / 智能制造</h2>
+      <p>埃斯顿人气榜冠军,北交所投机资金高量比集中爆发。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-num">量比</th>
+          <th class="col-text">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">002747</td><td class="col-name">埃斯顿</td><td class="col-num up">+7.83%</td><td class="col-num">—</td><td class="col-text">人气榜冠军,机器人本体龙头</td></tr>
+        <tr><td class="col-code">920578</td><td class="col-name">巨能股份</td><td class="col-num up">+14.77%</td><td class="col-num flag">67</td><td class="col-text">北交所,60 日新高 + 多次涨停</td></tr>
+        <tr><td class="col-code">920510</td><td class="col-name">丰光精密</td><td class="col-num up">+11.90%</td><td class="col-num">36</td><td class="col-text">北交所,60 日新高 + 多次涨停</td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>🧲 主线 3:磁材 / 通信 / 化工</h2>
+      <p>三条线索同步活跃,形成多点开花格局。</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-text">线索</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">000970</td><td class="col-name">中科三环</td><td class="col-num up">+6.25%</td><td class="col-text">磁材:钕铁硼龙头</td></tr>
+        <tr><td class="col-code">600522</td><td class="col-name">中天科技</td><td class="col-num up">+5.55%</td><td class="col-text">通信:人气 #4,海缆 + 算力</td></tr>
+        <tr><td class="col-code">603065</td><td class="col-name">宿迁联盛</td><td class="col-num up">+10.05%</td><td class="col-text">化工:60 日新高,首板</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================ 第 2 章 · 高度空间 + 赚钱效应 ============================ -->
+  <section>
+    <div class="chapter-intro">
+      <h2 class="chapter-title">高度空间 + 赚钱效应</h2>
+      <p class="chapter-lead">连板梯队看空间,昨日涨停今日表现看赚钱效应延续性。</p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="folio-title">
+      <h2>连板梯队</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">板数</th>
+          <th class="col-name">代表</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-num">封板(亿)</th>
+          <th class="col-text">备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">3 板</td><td class="col-name">天娱数科 (002354)</td><td class="col-num up">+9.96%</td><td class="col-num">6.7</td><td class="col-text">AI + 数字营销,人气 #2,60 日新高</td></tr>
+        <tr><td class="col-code">2 板</td><td class="col-name">金安国纪 (002636)</td><td class="col-num up">+10.00%</td><td class="col-num">7.6</td><td class="col-text">CCL 覆铜板</td></tr>
+        <tr><td class="col-code">2 板</td><td class="col-name">亚翔集成 (603929)</td><td class="col-num up">+10.00%</td><td class="col-num">20.3</td><td class="col-text">半导体洁净室</td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>昨日涨停今日表现</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">今日</th>
+          <th class="col-text">信号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">001696</td><td class="col-name">宗申动力</td><td class="col-num up">+9.97%</td><td class="col-text">强晋级 — 昨日 1 板 → 今日再涨停</td></tr>
+        <tr><td class="col-code">920578</td><td class="col-name">巨能股份</td><td class="col-num up">+14.77%</td><td class="col-text">强晋级 — 北交所高弹性</td></tr>
+        <tr><td class="col-code">002254</td><td class="col-name">泰和新材</td><td class="col-num up">+6.85%</td><td class="col-text">中等续涨</td></tr>
+        <tr><td class="col-code">002421</td><td class="col-name">达实智能</td><td class="col-num up">+3.84%</td><td class="col-text">⚠ 高位首阴 — 18 天 10 板冲高回落</td></tr>
+        <tr><td class="col-code">002490</td><td class="col-name">山东墨龙</td><td class="col-num">-4.25%</td><td class="col-text">掉队</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================ 第 3 章 · 人气 + 异动 + 观察 ============================ -->
+  <section>
+    <div class="chapter-intro">
+      <h2 class="chapter-title">人气 / 异动 / 重点观察</h2>
+      <p class="chapter-lead">人气飙升看新热点,大笔买入看主力方向,综合给次日观察清单。</p>
+    </div>
+    <div class="rule"></div>
+
+    <div class="folio-title">
+      <h2>人气飙升榜(增量资金 / 新热点)</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-num" style="width:14%;">排名变动</th>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">涨幅</th>
+          <th class="col-text">信号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-num flag">+3,597</td><td class="col-code">301187</td><td class="col-name">欧圣电气</td><td class="col-num up">+2.07%</td><td class="col-text">异动新晋</td></tr>
+        <tr><td class="col-num">+2,255</td><td class="col-code">301299</td><td class="col-name">卓创资讯</td><td class="col-num">+0.41%</td><td class="col-text">信息服务</td></tr>
+        <tr><td class="col-num">+2,213</td><td class="col-code">300522</td><td class="col-name">世名科技</td><td class="col-num up">+8.98%</td><td class="col-text">飙升榜最强新热点</td></tr>
+        <tr><td class="col-num">+2,033</td><td class="col-code">300172</td><td class="col-name">中电环保</td><td class="col-num">+0.21%</td><td class="col-text">环保异动</td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title">
+      <h2>盘中大笔买入(主力方向 Top 5)</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-num">金额(万)</th>
+          <th class="col-text">线索</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code">605006</td><td class="col-name">山东玻纤</td><td class="col-num">8,481</td><td class="col-text">玻璃纤维 / 化工</td></tr>
+        <tr><td class="col-code">300975</td><td class="col-name">商络电子</td><td class="col-num">2,392</td><td class="col-text">电子元器件</td></tr>
+        <tr><td class="col-code">001696</td><td class="col-name">宗申动力</td><td class="col-num">2,280</td><td class="col-text">磁电(再次出现,主线确认)</td></tr>
+        <tr><td class="col-code">301196</td><td class="col-name">唯科科技</td><td class="col-num">2,091</td><td class="col-text">精密制造</td></tr>
+        <tr><td class="col-code">002421</td><td class="col-name">达实智能</td><td class="col-num">1,562</td><td class="col-text">高位承接仍在,但动能减弱</td></tr>
+      </tbody>
+    </table>
+
+    <div class="folio-title" style="margin-top:5mm;">
+      <h2>综合判断</h2>
+    </div>
+    <table class="core-grid">
+      <tr>
+        <td>
+          <div class="core-panel">
+            <div class="panel-kicker">强势特征</div>
+            <div class="panel-line"><strong>主线清晰:</strong>电子材料 + 机器人 + 磁材 三箭齐发</div>
+            <div class="panel-line"><strong>空间打开:</strong>天娱数科 3 板 + 人气第二</div>
+            <div class="panel-line"><strong>资金共识:</strong>圣泉集团单股 18 亿封单</div>
+          </div>
+        </td>
+        <td class="gutter"></td>
+        <td>
+          <div class="core-panel risk">
+            <div class="panel-kicker">风险点</div>
+            <div class="panel-line">达实智能 18 天 10 板已显疲态,今日仅 +3.84% 冲高回落</div>
+            <div class="panel-line">山东墨龙 -4.25% / 灵康药业 -1.56% 掉队</div>
+            <div class="panel-line">退市太和 (605081) 在涨停池,博弈风险</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="folio-title" style="margin-top:4mm;">
+      <h2>重点观察(次日关键)</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="col-code" style="width:12%;">优先级</th>
+          <th class="col-code">代码</th>
+          <th class="col-name">名称</th>
+          <th class="col-text">关注点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-code flag">⭐⭐⭐</td><td class="col-code">002354</td><td class="col-name">天娱数科</td><td class="col-text">3 进 4 — 最高板 + 人气第二</td></tr>
+        <tr><td class="col-code flag">⭐⭐⭐</td><td class="col-code">605589</td><td class="col-name">圣泉集团</td><td class="col-text">18 亿封单次日是否释放</td></tr>
+        <tr><td class="col-code flag">⭐⭐</td><td class="col-code">002636</td><td class="col-name">金安国纪</td><td class="col-text">电子材料链持续性(2 板 → 3 板)</td></tr>
+        <tr><td class="col-code flag">⭐⭐</td><td class="col-code">002747</td><td class="col-name">埃斯顿</td><td class="col-text">机器人主线情绪锚(人气冠军)</td></tr>
+        <tr><td class="col-code">⭐</td><td class="col-code">300522</td><td class="col-name">世名科技</td><td class="col-text">飙升榜 +8.98%,新晋龙头候选</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="footer">集合竞价报告 · 2026-06-09 · 仅供研究参考,不构成投资建议</div>
+</body>
+</html>

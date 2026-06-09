@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Morning Brief — {{DATE}}</title>
+  <style>
+    @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+
+    :root {
+      --ink: #0a0a0a;
+      --muted: #555;
+      --soft: #888;
+      --wine: #722f37;
+      --gold: #b8860b;
+      --rule: #e0e0e0;
+      --rule-dark: #191919;
+    }
+
+    body {
+      font-family: "PingFang SC", "Heiti SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: 9.4pt; line-height: 1.55; color: var(--ink); margin: 0;
+    }
+    h1, h2, h3 {
+      font-family: "Songti SC", "STSong", serif;
+      font-weight: 600; margin: 0; color: var(--ink);
+    }
+    p { margin: 0; }
+    h1, h2, h3 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+
+    /* ====== 头条 ====== */
+    .headline { border-bottom: 3px solid var(--rule-dark); padding-bottom: 3mm; margin-bottom: 5mm; }
+    .headline__date { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1.4pt; color: var(--soft); }
+    .headline__title { font-size: 22pt; line-height: 1.1; margin: 1.5mm 0; }
+    .headline__sub { font-size: 10pt; color: var(--wine); }
+
+    /* ====== 核心数字条 ====== */
+    .stat-row { display: flex; gap: 4mm; margin-bottom: 5mm; }
+    .stat-row > div { flex: 1; border-top: 1px solid var(--rule-dark); padding-top: 2mm; }
+    .stat-num { display: block; font-family: "Songti SC", serif; font-size: 18pt; line-height: 1; color: var(--wine); margin-bottom: 1mm; }
+    .stat-lbl { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.1pt; color: var(--soft); }
+
+    /* ====== 主线/风险 ====== */
+    .core-grid { width: 100%; border-collapse: collapse; margin-bottom: 5mm; }
+    .core-grid td { width: 50%; vertical-align: top; padding: 0; }
+    .core-grid .gutter { width: 4mm; }
+    .core-panel { border-left: 2px solid var(--wine); padding-left: 3mm; }
+    .core-panel.risk { border-left-color: var(--gold); }
+    .panel-kicker { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.2pt; color: var(--soft); margin-bottom: 1.5mm; }
+    .panel-line { font-size: 9pt; line-height: 1.55; margin-bottom: 1.5mm; }
+    .panel-line strong { color: var(--wine); }
+
+    /* ====== 重点观察 ====== */
+    .watch-table { width: 100%; border-collapse: collapse; font-size: 8.4pt; }
+    .watch-table th { font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.6pt; color: var(--soft); text-align: left; padding: 1.4mm 2mm; border-bottom: 1px solid var(--rule-dark); }
+    .watch-table td { padding: 1.5mm 2mm; border-bottom: 1px solid var(--rule); }
+    .watch-table tr:last-child td { border-bottom: none; }
+    .col-pri  { width: 8%; font-size: 11pt; color: var(--gold); }
+    .col-code { width: 14%; font-family: "Songti SC", serif; }
+    .col-name { width: 18%; font-weight: 600; }
+    .col-why  { width: auto; }
+
+    .folio-title { padding-bottom: 1.5mm; margin: 4mm 0 2.5mm; border-bottom: 1px solid var(--rule); }
+    .folio-title h2 { font-size: 11pt; }
+
+    .footer { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid var(--rule); font-size: 7pt; color: var(--soft); }
+  </style>
+</head>
+<body>
+
+  <div class="headline">
+    <div class="headline__date">{{DATE_LABEL}}</div>
+    <h1 class="headline__title">Morning Brief</h1>
+    <div class="headline__sub">集合竞价定调 · {{TIME_LABEL}}</div>
+  </div>
+
+  <!-- 核心数字 -->
+  <div class="stat-row">
+    <div>
+      <span class="stat-num">{{ZT_COUNT}}</span>
+      <span class="stat-lbl">涨停数</span>
+    </div>
+    <div>
+      <span class="stat-num">{{MAX_BAN}}</span>
+      <span class="stat-lbl">最高板</span>
+    </div>
+    <div>
+      <span class="stat-num">{{NEW_HIGH}}</span>
+      <span class="stat-lbl">60 日新高</span>
+    </div>
+    <div>
+      <span class="stat-num">{{TOP_VOL_RATIO}}</span>
+      <span class="stat-lbl">最高量比</span>
+    </div>
+  </div>
+
+  <!-- 主线 / 风险 -->
+  <table class="core-grid">
+    <tr>
+      <td>
+        <div class="core-panel">
+          <div class="panel-kicker">主线条线</div>
+          <div class="panel-line"><strong>{{LINE1}}</strong> — {{LINE1_NOTE}}</div>
+          <div class="panel-line"><strong>{{LINE2}}</strong> — {{LINE2_NOTE}}</div>
+          <div class="panel-line"><strong>{{LINE3}}</strong> — {{LINE3_NOTE}}</div>
+        </div>
+      </td>
+      <td class="gutter"></td>
+      <td>
+        <div class="core-panel risk">
+          <div class="panel-kicker">风险点</div>
+          <div class="panel-line">{{RISK1}}</div>
+          <div class="panel-line">{{RISK2}}</div>
+          <div class="panel-line">{{RISK3}}</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- 重点观察 -->
+  <div class="folio-title">
+    <h2>重点观察</h2>
+  </div>
+  <table class="watch-table">
+    <thead>
+      <tr>
+        <th class="col-pri">★</th>
+        <th class="col-code">代码</th>
+        <th class="col-name">名称</th>
+        <th class="col-why">关注点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="col-pri">★★★</td><td class="col-code">{{W1_CODE}}</td><td class="col-name">{{W1_NAME}}</td><td class="col-why">{{W1_WHY}}</td></tr>
+      <tr><td class="col-pri">★★★</td><td class="col-code">{{W2_CODE}}</td><td class="col-name">{{W2_NAME}}</td><td class="col-why">{{W2_WHY}}</td></tr>
+      <tr><td class="col-pri">★★</td><td class="col-code">{{W3_CODE}}</td><td class="col-name">{{W3_NAME}}</td><td class="col-why">{{W3_WHY}}</td></tr>
+      <tr><td class="col-pri">★★</td><td class="col-code">{{W4_CODE}}</td><td class="col-name">{{W4_NAME}}</td><td class="col-why">{{W4_WHY}}</td></tr>
+      <tr><td class="col-pri">★</td><td class="col-code">{{W5_CODE}}</td><td class="col-name">{{W5_NAME}}</td><td class="col-why">{{W5_WHY}}</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">Morning Brief · {{DATE}} · 仅供研究参考,不构成投资建议</div>
+</body>
+</html>

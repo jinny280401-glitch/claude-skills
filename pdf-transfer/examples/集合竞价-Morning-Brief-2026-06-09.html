@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Morning Brief — 2026-06-09</title>
+  <style>
+    @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+    :root {
+      --ink: #0a0a0a; --muted: #555; --soft: #888;
+      --wine: #722f37; --gold: #b8860b;
+      --rule: #e0e0e0; --rule-dark: #191919;
+    }
+    body {
+      font-family: "PingFang SC", "Heiti SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: 9.4pt; line-height: 1.55; color: var(--ink); margin: 0;
+    }
+    h1, h2, h3 { font-family: "Songti SC", "STSong", serif; font-weight: 600; margin: 0; color: var(--ink); }
+    p { margin: 0; }
+    h1, h2, h3 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .headline { border-bottom: 3px solid var(--rule-dark); padding-bottom: 3mm; margin-bottom: 5mm; }
+    .headline__date { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1.4pt; color: var(--soft); }
+    .headline__title { font-size: 22pt; line-height: 1.1; margin: 1.5mm 0; }
+    .headline__sub { font-size: 10pt; color: var(--wine); }
+    .stat-row { display: flex; gap: 4mm; margin-bottom: 5mm; }
+    .stat-row > div { flex: 1; border-top: 1px solid var(--rule-dark); padding-top: 2mm; }
+    .stat-num { display: block; font-family: "Songti SC", serif; font-size: 18pt; line-height: 1; color: var(--wine); margin-bottom: 1mm; }
+    .stat-lbl { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.1pt; color: var(--soft); }
+    .core-grid { width: 100%; border-collapse: collapse; margin-bottom: 5mm; }
+    .core-grid td { width: 50%; vertical-align: top; padding: 0; }
+    .core-grid .gutter { width: 4mm; }
+    .core-panel { border-left: 2px solid var(--wine); padding-left: 3mm; }
+    .core-panel.risk { border-left-color: var(--gold); }
+    .panel-kicker { font-size: 7pt; text-transform: uppercase; letter-spacing: 1.2pt; color: var(--soft); margin-bottom: 1.5mm; }
+    .panel-line { font-size: 9pt; line-height: 1.55; margin-bottom: 1.5mm; }
+    .panel-line strong { color: var(--wine); }
+    .watch-table { width: 100%; border-collapse: collapse; font-size: 8.4pt; }
+    .watch-table th { font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.6pt; color: var(--soft); text-align: left; padding: 1.4mm 2mm; border-bottom: 1px solid var(--rule-dark); }
+    .watch-table td { padding: 1.5mm 2mm; border-bottom: 1px solid var(--rule); }
+    .watch-table tr:last-child td { border-bottom: none; }
+    .col-pri  { width: 8%; font-size: 11pt; color: var(--gold); }
+    .col-code { width: 14%; font-family: "Songti SC", serif; }
+    .col-name { width: 18%; font-weight: 600; }
+    .col-why  { width: auto; }
+    .folio-title { padding-bottom: 1.5mm; margin: 4mm 0 2.5mm; border-bottom: 1px solid var(--rule); }
+    .folio-title h2 { font-size: 11pt; }
+    .footer { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid var(--rule); font-size: 7pt; color: var(--soft); }
+  </style>
+</head>
+<body>
+
+  <div class="headline">
+    <div class="headline__date">2026 年 6 月 9 日 · 周二</div>
+    <h1 class="headline__title">Morning Brief</h1>
+    <div class="headline__sub">集合竞价定调 · 09:37 时点</div>
+  </div>
+
+  <div class="stat-row">
+    <div>
+      <span class="stat-num">22</span>
+      <span class="stat-lbl">涨停数</span>
+    </div>
+    <div>
+      <span class="stat-num">3 板</span>
+      <span class="stat-lbl">最高板</span>
+    </div>
+    <div>
+      <span class="stat-num">≥ 8</span>
+      <span class="stat-lbl">60 日新高</span>
+    </div>
+    <div>
+      <span class="stat-num">126</span>
+      <span class="stat-lbl">最高量比</span>
+    </div>
+  </div>
+
+  <table class="core-grid">
+    <tr>
+      <td>
+        <div class="core-panel">
+          <div class="panel-kicker">主线条线</div>
+          <div class="panel-line"><strong>电子材料 / PCB</strong> — 圣泉集团 18 亿封单,金安国纪 2 板</div>
+          <div class="panel-line"><strong>机器人 / 智能制造</strong> — 埃斯顿人气冠军,北交所高量比批量爆发</div>
+          <div class="panel-line"><strong>磁材 / 通信</strong> — 中科三环 +6.25%,中天科技 +5.55%</div>
+        </div>
+      </td>
+      <td class="gutter"></td>
+      <td>
+        <div class="core-panel risk">
+          <div class="panel-kicker">风险点</div>
+          <div class="panel-line">达实智能 18 天 10 板已显疲态,今日仅 +3.84% 冲高回落</div>
+          <div class="panel-line">山东墨龙 -4.25% / 灵康药业 -1.56% 掉队</div>
+          <div class="panel-line">退市太和 (605081) 在涨停池,博弈风险</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="folio-title">
+    <h2>重点观察</h2>
+  </div>
+  <table class="watch-table">
+    <thead>
+      <tr>
+        <th class="col-pri">★</th>
+        <th class="col-code">代码</th>
+        <th class="col-name">名称</th>
+        <th class="col-why">关注点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="col-pri">★★★</td><td class="col-code">002354</td><td class="col-name">天娱数科</td><td class="col-why">3 进 4 — 最高板 + 人气第二</td></tr>
+      <tr><td class="col-pri">★★★</td><td class="col-code">605589</td><td class="col-name">圣泉集团</td><td class="col-why">18 亿封单次日是否释放</td></tr>
+      <tr><td class="col-pri">★★</td><td class="col-code">002636</td><td class="col-name">金安国纪</td><td class="col-why">电子材料链持续性(2 板 → 3 板)</td></tr>
+      <tr><td class="col-pri">★★</td><td class="col-code">002747</td><td class="col-name">埃斯顿</td><td class="col-why">机器人主线情绪锚(人气冠军)</td></tr>
+      <tr><td class="col-pri">★</td><td class="col-code">300522</td><td class="col-name">世名科技</td><td class="col-why">飙升榜 +8.98%,新晋龙头候选</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">Morning Brief · 2026-06-09 · 仅供研究参考,不构成投资建议</div>
+</body>
+</html>
