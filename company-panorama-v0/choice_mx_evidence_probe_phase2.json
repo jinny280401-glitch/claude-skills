@@ -1,0 +1,130 @@
+{
+  "report_title": "Company Panorama Evidence Tools Probe - Phase 2",
+  "test_date": "2026-07-08 00:47:02",
+  "api_key_masked": "em_***6a7",
+  "tests_total": 6,
+  "tests_passed": 6,
+  "can_map_evidence_level": 0,
+  "can_map_allowed_use": 0,
+  "results": [
+    {
+      "test_id": 1,
+      "category": "Company Identification (Listed)",
+      "tool_name": "mx_ashare_finance_data",
+      "query": "宁德时代 300750 公司基本资料 主营业务 所属行业",
+      "raw_status": "PASS",
+      "returned_count": 6,
+      "sample_title": null,
+      "sample_date": null,
+      "source": null,
+      "source_id": null,
+      "url": null,
+      "observed_keys": [
+        "columns",
+        "items",
+        "sheetName"
+      ],
+      "can_map_to_evidence_level": "NO",
+      "can_map_to_allowed_use": "NO",
+      "needs_blocked_fields": "YES"
+    },
+    {
+      "test_id": 2,
+      "category": "Company Identification (Comprehensive)",
+      "tool_name": "mx_comprehensive_finance_data",
+      "query": "宁德时代新能源科技股份有限公司 基本信息",
+      "raw_status": "PASS",
+      "returned_count": 1,
+      "sample_title": null,
+      "sample_date": null,
+      "source": null,
+      "source_id": null,
+      "url": null,
+      "observed_keys": [
+        "columns",
+        "items",
+        "sheetName"
+      ],
+      "can_map_to_evidence_level": "NO",
+      "can_map_to_allowed_use": "NO",
+      "needs_blocked_fields": "YES"
+    },
+    {
+      "test_id": 3,
+      "category": "Announcements (Notice)",
+      "tool_name": "mx_finance_search_notice",
+      "query": "宁德时代 300750 最近公告",
+      "raw_status": "PASS",
+      "returned_count": 1,
+      "sample_title": null,
+      "sample_date": null,
+      "source": null,
+      "source_id": null,
+      "url": null,
+      "observed_keys": [
+        "columns",
+        "items",
+        "sheetName"
+      ],
+      "can_map_to_evidence_level": "NO",
+      "can_map_to_allowed_use": "NO",
+      "needs_blocked_fields": "YES"
+    },
+    {
+      "test_id": 4,
+      "category": "News",
+      "tool_name": "mx_finance_search_news",
+      "query": "宁德时代 300750 最新新闻",
+      "raw_status": "PASS",
+      "returned_count": 1,
+      "sample_title": null,
+      "sample_date": null,
+      "source": null,
+      "source_id": null,
+      "url": null,
+      "observed_keys": [
+        "columns",
+        "items",
+        "sheetName"
+      ],
+      "can_map_to_evidence_level": "NO",
+      "can_map_to_allowed_use": "NO",
+      "needs_blocked_fields": "YES"
+    },
+    {
+      "test_id": 5,
+      "category": "Company Identification (Private)",
+      "tool_name": "mx_comprehensive_finance_data",
+      "query": "某AI软件科技有限公司 公司基本信息",
+      "raw_status": "PASS",
+      "returned_count": 0,
+      "sample_title": null,
+      "sample_date": null,
+      "source": null,
+      "source_id": null,
+      "url": null,
+      "observed_keys": [],
+      "can_map_to_evidence_level": "NO",
+      "can_map_to_allowed_use": "NO",
+      "needs_blocked_fields": "YES"
+    },
+    {
+      "test_id": 6,
+      "category": "Bond Issuer",
+      "tool_name": "mx_bond_finance_data",
+      "query": "万科企业 发债主体 债券信息",
+      "raw_status": "PASS",
+      "returned_count": 0,
+      "sample_title": null,
+      "sample_date": null,
+      "source": null,
+      "source_id": null,
+      "url": null,
+      "observed_keys": [],
+      "can_map_to_evidence_level": "NO",
+      "can_map_to_allowed_use": "NO",
+      "needs_blocked_fields": "YES"
+    }
+  ],
+  "verdict": "BLOCKED"
+}

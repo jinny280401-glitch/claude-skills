@@ -1,0 +1,101 @@
+{
+  "company": "宁德时代新能源科技股份有限公司",
+  "as_of_date": "2026-07-08",
+  "card_title": "3分钟客户拜访准备卡",
+  "one_page_summary": {
+    "positioning": "UNKNOWN",
+    "main_business": [
+      "主营业务：动力电池、储能电池的研发、生产、销售（证据等级 High）"
+    ],
+    "key_people": [],
+    "products_services": [
+      "主营业务：动力电池、储能电池的研发、生产、销售（证据等级 High）"
+    ],
+    "recent_updates": [
+      {
+        "date": "2026-03-10",
+        "signal": "主营业务：动力电池、储能电池的研发、生产、销售",
+        "source_rank": "High"
+      },
+      {
+        "date": "2026-07-06",
+        "signal": "天行Ⅱ轻商超充版电池发布",
+        "source_rank": "Medium"
+      }
+    ]
+  },
+  "risk_radar": [
+    {
+      "risk_type": "工商异常",
+      "signal_status": "unknown",
+      "signal": "v0 样例未接入工商官方源，需人工核查",
+      "evidence_level": "UNKNOWN"
+    },
+    {
+      "risk_type": "舆情风险",
+      "signal_status": "requires_manual_check",
+      "signal": "近期新闻较多，需区分公司官网新闻、主流媒体报道与市场传闻",
+      "evidence_level": "Medium"
+    },
+    {
+      "risk_type": "诉讼风险",
+      "signal_status": "unknown",
+      "signal": "需接法院/仲裁/公告源确认",
+      "evidence_level": "UNKNOWN"
+    },
+    {
+      "risk_type": "股权/控制权风险",
+      "signal_status": "requires_manual_check",
+      "signal": "上市公司股东结构可查，但本卡不作控制权稳定性结论",
+      "evidence_level": "Medium"
+    },
+    {
+      "risk_type": "经营波动风险",
+      "signal_status": "signal_present",
+      "signal": "公司公告涉及套期保值/衍生品及债券融资事项，可作为拜访前核查信号",
+      "evidence_level": "High"
+    }
+  ],
+  "evidence_grade_table": {
+    "High": [
+      "官方公告",
+      "工商",
+      "年报",
+      "监管文件"
+    ],
+    "Medium": [
+      "主流媒体",
+      "券商研报",
+      "招投标",
+      "招聘",
+      "公开业务资料"
+    ],
+    "Low": [
+      "自媒体",
+      "二手转述",
+      "估算信息"
+    ]
+  },
+  "non_derivation_boundaries": [
+    "未取得审计财报时，不确认未经审计财务口径",
+    "媒体估算不等于事实",
+    "非上市公司收入/利润默认 UNKNOWN",
+    "本报告不构成投资建议",
+    "风险信号不等于风险事实"
+  ],
+  "manual_check_questions": [
+    "请确认当前主营收入来源及不同业务线占比",
+    "是否存在大客户集中或区域集中情况？",
+    "最近融资、扩产或海外布局进度如何？",
+    "是否存在未披露诉讼、担保或关联交易风险？",
+    "当前主要合作方和销售区域是什么？"
+  ],
+  "blocked_claims_detected": [],
+  "disclaimer": "本卡片仅用于拜访前背景准备，不构成投资建议或尽调替代。",
+  "evidence_summary": {
+    "high_count": 1,
+    "medium_count": 1,
+    "low_count": 0,
+    "total_count": 2
+  }
+}

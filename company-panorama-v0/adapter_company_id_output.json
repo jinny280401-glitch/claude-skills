@@ -1,0 +1,90 @@
+{
+  "adapter": "company-identification-adapter-v0",
+  "resolution": {
+    "query_name": "宁德时代",
+    "company_name_normalized": "宁德时代新能源科技股份有限公司",
+    "stock_code": "300750",
+    "stock_exchange": "SZ",
+    "entity_type": "listed",
+    "raw_attributes": {
+      "公司中文名称": "宁德时代新能源科技股份有限公司",
+      "首发上市日": "2018-06-11",
+      "股票简称": "宁德时代"
+    },
+    "resolution_source": null
+  },
+  "match_tests": [
+    {
+      "title": "恒翼能:宁德时代既是股东又是客户,ACC自身难保,回款差,高负债_财经头条_新浪财经",
+      "type": "news",
+      "company_match_confidence": 0.3,
+      "company_match_method": "contextual_weak_match",
+      "company_match_route": "reject_before_trust_gate",
+      "company_match_note": "标题主体是「恒翼能」而非目标公司，目标公司仅被提及/关联",
+      "resolved_company_name": "宁德时代新能源科技股份有限公司",
+      "resolved_stock_code": "300750",
+      "matched_text": "恒翼能",
+      "requires_manual_review": false
+    },
+    {
+      "title": "宁德时代:H股公告(截至2026年6月30日止股份发行人的证券变动月报表)",
+      "type": "announcement",
+      "company_match_confidence": 0.9,
+      "company_match_method": "short_name_match",
+      "company_match_route": "eligible_fact_input",
+      "company_match_note": "标题以公司简称开头，符合公告/新闻主体格式",
+      "resolved_company_name": "宁德时代新能源科技股份有限公司",
+      "resolved_stock_code": "300750",
+      "matched_text": "宁德时代",
+      "requires_manual_review": false
+    },
+    {
+      "title": "宁德时代股价波动背后的市场信号分析_公司_行业_新能源",
+      "type": "news",
+      "company_match_confidence": 0.9,
+      "company_match_method": "short_name_match",
+      "company_match_route": "eligible_fact_input",
+      "company_match_note": "标题以公司简称开头，符合公告/新闻主体格式",
+      "resolved_company_name": "宁德时代新能源科技股份有限公司",
+      "resolved_stock_code": "300750",
+      "matched_text": "宁德时代",
+      "requires_manual_review": false
+    },
+    {
+      "title": "宁德时代申请电池装置专利提升底板刚度性能_投资_企业_箱体",
+      "type": "news",
+      "company_match_confidence": 0.9,
+      "company_match_method": "short_name_match",
+      "company_match_route": "eligible_fact_input",
+      "company_match_note": "标题以公司简称开头，符合公告/新闻主体格式",
+      "resolved_company_name": "宁德时代新能源科技股份有限公司",
+      "resolved_stock_code": "300750",
+      "matched_text": "宁德时代",
+      "requires_manual_review": false
+    },
+    {
+      "title": "宁德时代入股开洋船舶，布局船舶制造市场_股东_技术_电船",
+      "type": "news",
+      "company_match_confidence": 0.9,
+      "company_match_method": "short_name_match",
+      "company_match_route": "eligible_fact_input",
+      "company_match_note": "标题以公司简称开头，符合公告/新闻主体格式",
+      "resolved_company_name": "宁德时代新能源科技股份有限公司",
+      "resolved_stock_code": "300750",
+      "matched_text": "宁德时代",
+      "requires_manual_review": false
+    },
+    {
+      "title": "某房地产开发公司季度报告",
+      "type": "announcement",
+      "company_match_confidence": 0.0,
+      "company_match_method": "no_match",
+      "company_match_route": "reject_before_trust_gate",
+      "company_match_note": "标题不含公司任何标识，无法建立主体关联",
+      "resolved_company_name": "宁德时代新能源科技股份有限公司",
+      "resolved_stock_code": "300750",
+      "matched_text": null,
+      "requires_manual_review": false
+    }
+  ]
+}

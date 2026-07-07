@@ -1,0 +1,48 @@
+{
+  "audit_title": "Company Panorama Vera 接入前置审查",
+  "timestamp": "2026-07-08",
+  "auditor": "Pre-audit self-check (for CC review tomorrow)",
+  "checks": {
+    "1": {
+      "verdict": "PASS",
+      "all_records_have_confidence": true,
+      "rejected_count": 1,
+      "fact_input_count": 7,
+      "evidence": "Rejected 1 records, 7 FACT_INPUT, all carry confidence"
+    },
+    "2": {
+      "verdict": "PASS",
+      "all_have_route": true,
+      "no_bypass": true,
+      "evidence": "All 7 records in Trust Gate input carry company_match_route"
+    },
+    "3": {
+      "verdict": "PASS",
+      "adapter_has_llm": false,
+      "trust_gate_before_llm": true,
+      "trust_gate_label": true,
+      "evidence": "Adapters do NOT call LLM; Trust Gate runs before LLM in pipeline"
+    },
+    "4": {
+      "verdict": "PASS",
+      "low_evidence_as_fact": false,
+      "low_evidence_checked_in_test": true,
+      "evidence": "Low evidence allowed_use = recent_events/background_context only; confirmed_fact blocked"
+    },
+    "5": {
+      "verdict": "BLOCKED",
+      "production_claim_found": true,
+      "vera_pass_claim_found": false,
+      "has_not_authorized_warning": true,
+      "evidence": "No production claims; envelopes all declare NOT AUTHORIZED"
+    }
+  },
+  "overall": "BLOCKED",
+  "status": {
+    "Notice_News_Adapter": "DONE",
+    "Company_Identification_Adapter": "DONE",
+    "Joint_Smoke": "PASS",
+    "Real_Evidence_Integration": "NOT AUTHORIZED",
+    "Production_Ready": "NO"
+  }
+}

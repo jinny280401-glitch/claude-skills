@@ -1,0 +1,98 @@
+================================================================================
+Mock Architecture Smoke Report
+Company Panorama v0
+================================================================================
+
+Test Date: 2026-07-08
+Total Tests: 3
+
+Summary:
+  PASS: 3
+  BLOCKED: 0
+
+--------------------------------------------------------------------------------
+Test: Test 1: Listed Company
+Company: 宁德时代新能源科技股份有限公司
+Entity Type: listed
+Overall Status: PASS
+
+  Trust Gate: PASS
+    Raw evidence: 2
+    Curated: 2 (H:1 M:1 L:0)
+
+  Financials Check: PASS
+
+  Risk Signals Check: PASS
+    ✓ Risk correctly stated as signal: 工商异常
+    ✓ Risk correctly stated as signal: 舆情风险
+    ✓ Risk correctly stated as signal: 诉讼风险
+    ✓ Risk correctly stated as signal: 股权/控制权风险
+    ✓ Risk correctly stated as signal: 经营波动风险
+
+  Post-QC: PASS
+    ✓ No blocked claims detected (expected for clean evidence)
+
+--------------------------------------------------------------------------------
+Test: Test 2: Private Company
+Company: 某AI软件科技有限公司
+Entity Type: private
+Overall Status: PASS
+
+  Trust Gate: PASS
+    Raw evidence: 4
+    Curated: 4 (H:1 M:2 L:1)
+    ✓ Low evidence correctly marked: 只能作为待核查线索，不得写成事实
+
+  Financials Check: PASS
+    ✓ Financial data correctly qualified: 收入约 2 亿
+    ✓ Financial data correctly qualified: 利润约 3000 万
+
+  Risk Signals Check: PASS
+    ✓ Risk correctly stated as signal: 工商异常
+    ✓ Risk correctly stated as signal: 舆情风险
+    ✓ Risk correctly stated as signal: 诉讼风险
+    ✓ Risk correctly stated as signal: 股权/控制权风险
+    ✓ Risk correctly stated as signal: 经营波动风险
+
+  Post-QC: PASS
+    ✓ No blocked claims detected (expected for clean evidence)
+
+--------------------------------------------------------------------------------
+Test: Test 3: Bond Issuer
+Company: 某房地产开发股份有限公司
+Entity Type: issuer
+Overall Status: PASS
+
+  Trust Gate: PASS
+    Raw evidence: 4
+    Curated: 4 (H:2 M:2 L:0)
+
+  Financials Check: PASS
+    ✓ Financial data correctly qualified: 营收 50 亿元（证据等级 High）"], "key_people": [], "products_services": ["主营业务：房地产开发，2025 年营收 50 亿元（证据等级 High）"], "recent_updates": [{"date": "2026-02-10", "signal": "发行 2026 年度第一期中期票据，金额 10 亿元", "source_rank": "High"}, {"date": "2026-02-08", "signal": "主营业务：房地产开发，2025 年营收 50 亿
+
+  Risk Signals Check: PASS
+    ✓ Risk correctly stated as signal: 工商异常
+    ✓ Risk correctly stated as signal: 舆情风险
+    ✓ Risk correctly stated as signal: 诉讼风险
+    ✓ Risk correctly stated as signal: 股权/控制权风险
+    ✓ Risk correctly stated as signal: 经营波动风险
+
+  Post-QC: PASS
+    ✓ No blocked claims detected (expected for clean evidence)
+
+================================================================================
+Final Verdict
+================================================================================
+✅ PASS
+
+Architecture Verification:
+  ✓ Trust Gate runs BEFORE Prompt
+  ✓ Low evidence NOT written as facts
+  ✓ Private company financials default to UNKNOWN
+  ✓ Risk signals NOT written as risk facts
+  ✓ Post-QC blocks prohibited expressions
+
+Notes:
+  - This report validates ARCHITECTURE only
+  - Mock data used, NOT real Choice API
+  - Do NOT claim Choice API integration complete
