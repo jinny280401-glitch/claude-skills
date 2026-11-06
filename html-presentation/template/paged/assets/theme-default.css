@@ -1,0 +1,32 @@
+/* theme-default.css — 默认视觉变量
+   主色深墨蓝 #0F2B46，点缀青绿 #0B7A72，大面积留白。固定配色，不跟随系统亮暗。 */
+:root{
+  /* 品牌色 */
+  --navy:#0F2B46;
+  --navy-700:#143754;
+  --teal:#0B7A72;
+  --teal-on-dark:#3FB5AC;   /* 深底上的青绿压不住，提亮一档 */
+  --warn:#C77A1E;           /* ★ 实测/警示用的暖色，少量使用 */
+
+  /* 文本与中性 */
+  --ink:#0F2B46;
+  --page-ink:#1A2A36;
+  --muted:#5C6B78;
+  --hair:#D7DEE4;
+  --soft:#EEF2F5;
+
+  /* 页面与舞台背景 */
+  --stage-bg:#C9D2D9;       /* 舞台底（页面之外的留边），投影时四周不刺眼 */
+  --page-bg:#FFFFFF;        /* 单页底：大面积留白 */
+
+  /* 字体 */
+  --f-display:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --f-body:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --f-mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+
+  /* HUD 页码 */
+  --hud-ink:#3A4A57;--hud-bg:rgba(255,255,255,.82);--hud-line:#C4CDD5;
+
+  /* 讲师备注浮层 */
+  --notes-bg:#0F2B46;--notes-ink:#E8EDF1;
+}

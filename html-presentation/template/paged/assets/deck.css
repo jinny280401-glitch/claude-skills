@@ -1,0 +1,127 @@
+/* deck.css — 结构与布局（Theme 无关）
+   分页式演示：一页一个 .slide（16:9），键盘翻页，讲师备注与屏幕内容分离。
+   颜色/字体一律走 theme 的 CSS 变量，这里不写死色值。 */
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:var(--stage-bg);
+  color:var(--ink);
+  font-family:var(--f-body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow:hidden;
+}
+
+/* ---------- 舞台：把 16:9 的页面居中、等比缩放塞进视口 ---------- */
+.stage{position:fixed;inset:0;display:grid;place-items:center;overflow:hidden}
+.deck{
+  position:relative;
+  width:1280px;height:720px;              /* 设计分辨率 16:9，内部一律按这套坐标排版 */
+  transform:scale(var(--fit,1));
+  transform-origin:center center;
+}
+
+/* ---------- 单页 ---------- */
+.slide{
+  position:absolute;inset:0;
+  padding:64px 88px;
+  background:var(--page-bg);
+  color:var(--page-ink);
+  display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;
+  transition:opacity .34s ease, transform .34s ease;
+  transform:translateY(10px);
+}
+.slide.current{opacity:1;visibility:visible;transform:none}
+.slide.leaving{opacity:0;visibility:visible;transform:translateY(-10px);transition:opacity .22s ease, transform .22s ease}
+
+/* 深色页（封面、P14）：整页深墨蓝反白 */
+.slide.dark{--page-bg:var(--navy);--page-ink:#FFFFFF}
+
+/* ---------- 页内通用排版件 ---------- */
+.eyebrow{font-family:var(--f-mono);font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin:0 0 20px}
+.slide.dark .eyebrow{color:var(--teal-on-dark)}
+h1.title{font-family:var(--f-display);font-weight:800;font-size:66px;line-height:1.1;letter-spacing:-.01em;margin:0}
+h2.title{font-family:var(--f-display);font-weight:800;font-size:46px;line-height:1.14;letter-spacing:-.005em;margin:0 0 8px}
+.lede{font-size:21px;line-height:1.7;color:var(--muted);max-width:30em;margin:14px 0 0}
+.slide.dark .lede{color:rgba(255,255,255,.72)}
+.accent-rule{width:56px;height:4px;background:var(--teal);border-radius:2px;margin:0 0 28px}
+.fill{flex:1 1 auto;min-height:0;display:flex}
+
+/* 青绿强调、深墨蓝强调 */
+.t-teal{color:var(--teal)} .t-navy{color:var(--navy)} .bold{font-weight:700}
+
+/* 底部页脚条（页码/课程名），不属于内容，低调 */
+.footer{position:absolute;left:88px;right:88px;bottom:30px;display:flex;justify-content:space-between;
+  font-family:var(--f-mono);font-size:13px;letter-spacing:.04em;color:var(--muted)}
+.slide.dark .footer{color:rgba(255,255,255,.5)}
+.footer .seq{font-variant-numeric:tabular-nums}
+
+/* ---------- HUD：页码指示（右下角常驻小字） ---------- */
+.hud{position:fixed;right:18px;bottom:14px;z-index:40;font-family:var(--f-mono);font-size:13px;
+  color:var(--hud-ink);background:var(--hud-bg);border:1px solid var(--hud-line);border-radius:999px;
+  padding:5px 12px;letter-spacing:.06em;font-variant-numeric:tabular-nums;user-select:none}
+.hud .dim{opacity:.55}
+
+/* ---------- 讲师备注浮层（S 键 / N 键切换，与屏幕内容分离） ---------- */
+.notes{position:fixed;inset:auto 0 0 0;z-index:60;max-height:46vh;overflow:auto;
+  background:var(--notes-bg);color:var(--notes-ink);border-top:2px solid var(--teal);
+  padding:20px 28px 26px;transform:translateY(102%);transition:transform .3s ease;
+  box-shadow:0 -12px 40px rgba(0,0,0,.28)}
+.notes.on{transform:none}
+.notes h4{margin:0 0 10px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.notes .np{margin:0 0 10px;font-size:15.5px;line-height:1.72}
+.notes .cue{display:block;margin-top:8px;padding:8px 12px;border-left:3px solid var(--muted);
+  background:rgba(127,127,127,.12);font-size:14px;color:var(--muted);border-radius:0 6px 6px 0}
+.notes .star{color:var(--warn);font-weight:700}
+.notes .hint{margin-top:12px;font-family:var(--f-mono);font-size:12px;color:var(--muted);opacity:.8}
+
+/* ---------- 帮助条（? 键） ---------- */
+.help{position:fixed;inset:0;z-index:80;display:none;place-items:center;background:rgba(15,43,70,.72)}
+.help.on{display:grid}
+.help .card{background:var(--page-bg);color:var(--ink);border-radius:14px;padding:30px 36px;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.help h4{margin:0 0 16px;font-family:var(--f-display);font-size:22px}
+.help dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:15px}
+.help dt{font-family:var(--f-mono);color:var(--teal);white-space:nowrap}
+.help dd{margin:0;color:var(--muted)}
+
+/* 划除（差提问） */
+.struck{position:relative;color:var(--muted);text-decoration:none}
+.struck::after{content:"";position:absolute;left:-4px;right:-4px;top:54%;height:3px;background:var(--warn);transform:rotate(-1.5deg)}
+
+/* 步骤圆标 + 顺序箭头（P8） */
+.step-no{font-family:var(--f-mono);font-size:15px;font-weight:700;color:#fff;background:var(--teal);
+  width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:none}
+.seq-arrow{align-self:center;color:var(--teal);font-size:30px;font-weight:700;flex:none;padding:0 6px}
+
+/* 界面示意占位（P9–P13，无真实截图时明确标注） */
+.shot-ph{border:2px dashed var(--teal);border-radius:12px;background:var(--soft);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);text-align:center;padding:20px}
+.shot-ph .tag{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;color:var(--teal);
+  border:1px solid var(--teal);border-radius:999px;padding:3px 12px}
+.shot-ph .ph-title{font-size:18px;font-weight:700;color:var(--navy)}
+.shot-ph .ph-note{font-size:13.5px;line-height:1.6;max-width:30em}
+
+/* 单色线条图标（替代 emoji） */
+.ico{width:40px;height:40px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* 两栏核验清单（P12） */
+.col-list{flex:1;border-radius:12px;padding:20px 22px}
+.col-list h5{margin:0 0 12px;font-size:17px;font-weight:700}
+.col-list li{font-size:15px;line-height:1.95;color:var(--muted);list-style:none}
+.col-list li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:10px;vertical-align:middle}
+
+/* 二维码位（P15） */
+.qr-slot{width:104px;height:104px;border:1.5px dashed var(--hair);border-radius:10px;display:grid;place-items:center;
+  font-family:var(--f-mono);font-size:11px;color:var(--muted);text-align:center;line-height:1.4}
+
+/* P4 五个词的小方块 */
+.chip{flex:1;border:1px solid var(--hair);border-radius:10px;padding:14px 10px;text-align:center;
+  font-family:var(--f-mono);font-size:19px;font-weight:600;color:var(--navy);
+  display:flex;flex-direction:column;gap:7px;line-height:1.1}
+.chip small{font-family:var(--f-body);font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0}
+
+@media (prefers-reduced-motion: reduce){ .slide,.notes{transition:none} }
+/* QA 静态模式（?qa=1）：关掉过渡，截图不抓在淡入中途 */
+body.no-anim .slide,body.no-anim .notes{transition:none}

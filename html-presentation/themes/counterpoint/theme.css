@@ -1,0 +1,28 @@
+/* themes/counterpoint/theme.css — 中性黑灰 + 蓝 accent 可选主题
+   在默认主题之后引入本文件覆盖 token，切换到中性黑灰 + 蓝 accent 配色。
+   本文件只落配色 token；画法组件（框/依赖线/出口/悬浮窗口等）留待后续按需提炼。 */
+:root{
+  /* 中性黑灰（灰不带蓝）+ 蓝 accent */
+  --navy:#1A1A1A;            /* 主墨色 */
+  --navy-700:#2A2A2A;
+  --teal:#1F5FBF;            /* accent（蓝） */
+  --teal-on-dark:#6FA3F0;
+  --warn:#C7791E;            /* pending 橙 */
+
+  --ink:#1A1A1A;
+  --page-ink:#1A1A1A;
+  --muted:#6B6B6B;
+  --hair:#CCCCCC;
+  --soft:#F5F5F5;
+
+  --stage-bg:#E4E4E4;
+  --page-bg:#FFFFFF;
+
+  /* 字体：Plex 系 + 苹方 */
+  --f-display:"IBM Plex Sans","PingFang SC","Noto Sans SC",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","PingFang SC","Noto Sans SC",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
+
+  --hud-ink:#5A5A5A;--hud-bg:rgba(255,255,255,.85);--hud-line:#CCCCCC;
+  --notes-bg:#1A1A1A;--notes-ink:#ECECEC;
+}
