@@ -1,0 +1,4 @@
+# 模型权重（运行时从上游 GitHub raw 自动下载，或从本地已有环境复用）
+vendor/animegan2-pytorch/weights/
+__pycache__/
+*.pyc

@@ -1,0 +1,46 @@
+# ============================================================
+# Skills 发布防护 — 默认拒绝新增 + 显式白名单
+#
+# 本仓库只发布经 Owner 白名单审核的 Skill。
+# 新增 Skill 流程：先加入下方「白名单」，再 git add <显式路径>。
+# 禁止 git add -A / git add . / git add -f 作为常规发布捷径。
+# 说明：.gitignore 只作用于未跟踪文件；已跟踪文件不受影响。
+# ============================================================
+
+# ---------- 全局忽略（任意层级，永不进入仓库）----------
+.DS_Store
+Thumbs.db
+.claude/
+__pycache__/
+*.py[cod]
+node_modules/
+
+# 环境文件 / 凭据 / 私有配置
+.env
+.env.*
+*.env
+mcp_config*.json
+config.local.json
+*.local.json
+
+# 临时产物 / 日志 / 备份
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# ---------- 默认拒绝：其余所有未跟踪的顶层条目 ----------
+/*
+
+# ---------- 白名单（已发布 / 已授权，逐项显式列出）----------
+!/.gitignore
+!/README.md
+!/business-tracker.md
+!/company-panorama-v0/
+!/group-photo-style/
+!/html-presentation/
+!/music-cover-art/
+!/pdf-transfer/
+!/报销Skill/
+!/报销Skill.zip
